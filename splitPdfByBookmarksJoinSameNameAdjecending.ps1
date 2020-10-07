@@ -48,12 +48,12 @@ param(
         )
 
         try{
-    Add-Type -LiteralPath ".\PdfSharp-gdi.dll"
+    Add-Type -LiteralPath ".\PdfSharp-gdi.dll" #our dll dependency, expected to be located in projects root folder.
     } catch {
     throw $Error
     }
 
-    $DestinationFile = $file | Split-Path -Parent
+    $DestinationFile = $file | Split-Path -Parent #dest = input folder
 
     if((Test-Path $DestinationFile) -and $DestinationFile.IsReadOnly -and -not $Force) {
         throw "Destination file '$($DestinationFile.FullName)' is read only"
