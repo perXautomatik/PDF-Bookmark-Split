@@ -70,6 +70,13 @@ param(
 	$document = [PdfSharp.Pdf.IO.PdfReader]::Open($file.FullName, [PdfSharp.Pdf.IO.PdfDocumentOpenMode]::Import)
     $curentTitle = ""
     $i = 1
+    Write-Verbose "---------------------------------------------testing---------------------------------------------" 
+     foreach( $kvp in $document.pages)
+    {
+    Write-Verbose ("Key = {0}, Value = {1}" -f $kvp.Key, $kvp.Value) ;
+    }
+    Write-Verbose 
+    Write-Verbose "---------------------------------------------testingend---------------------------------------------" 
 
 
     Foreach($rootb In $document.Outlines)
@@ -101,10 +108,18 @@ param(
             $curentTitle = "\" + $rootb.Title + ".pdf"
             $var = $rootb.DestinationPage
 
-            $var.Resources
+
+            Write-Verbose "---------------------------------------------ValueOfPage---------------------------------------------" 
+            
+            Write-Verbose $document.Elements.GetArray($var.Contents)
+            
+            
+            
+            
+            break
             }
               
-                break
+                
     }
     Write-Verbose "---------------------------------------------saveToOutput---------------------------------------------" 
     $newdocx.save($output);$newdocx.close;Remove-Variable newdocx
