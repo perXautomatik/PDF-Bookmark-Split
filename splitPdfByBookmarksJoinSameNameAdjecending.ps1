@@ -43,8 +43,7 @@ param(
                 throw "The file '$($_.FullName)' does not exist!"
             }
             $true
-        })]
-                [System.IO.FileInfo[]]$File
+        })][System.IO.FileInfo[]]$File
         )
 
         try{
@@ -71,6 +70,8 @@ param(
 	$document = [PdfSharp.Pdf.IO.PdfReader]::Open($file.FullName, [PdfSharp.Pdf.IO.PdfDocumentOpenMode]::Import)
     $curentTitle = ""
     $i = 1
+
+
     Foreach($rootb In $document.Outlines)
     {   
      $nonullable = $rootb.Title
@@ -98,8 +99,12 @@ param(
             $currentDoc.AddPage($rootb.DestinationPage)
 
             $curentTitle = "\" + $rootb.Title + ".pdf"
-            
+            $var = $rootb.DestinationPage
+
+            $var.Resources
             }
+              
+                break
     }
     Write-Verbose "---------------------------------------------saveToOutput---------------------------------------------" 
     $newdocx.save($output);$newdocx.close;Remove-Variable newdocx
