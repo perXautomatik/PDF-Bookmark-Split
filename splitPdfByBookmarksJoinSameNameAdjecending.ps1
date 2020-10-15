@@ -68,13 +68,13 @@ param(
     }
     	
 	$document = [PdfSharp.Pdf.IO.PdfReader]::Open($file.FullName, [PdfSharp.Pdf.IO.PdfDocumentOpenMode]::Import)
-    $curentTitle = ""
+    $curentTitle = "" 
     $i = 1
     Write-Verbose "---------------------------------------------testing---------------------------------------------" 
-     foreach( $kvp in $document.pages)
-    {
-    Write-Verbose ("Key = {0}, Value = {1}" -f $kvp.Key, $kvp.Value) ;
-    }
+     
+    Write-Verbose $document.pages[3].key
+    
+    
     Write-Verbose 
     Write-Verbose "---------------------------------------------testingend---------------------------------------------" 
 
