@@ -71,14 +71,13 @@ param(
     $curentTitle = "" 
     $i = 1
     Write-Verbose "---------------------------------------------testing---------------------------------------------" 
-     
-    Write-Verbose $document.pages[3].key
     
+    Write-Verbose $document.pages[2][4]
     
     Write-Verbose 
     Write-Verbose "---------------------------------------------testingend---------------------------------------------" 
 
-
+    cl
     Foreach($rootb In $document.Outlines)
     {   
      $nonullable = $rootb.Title
