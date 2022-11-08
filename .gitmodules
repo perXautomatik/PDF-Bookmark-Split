@@ -1,3 +1,6 @@
 [submodule "TextFromPdf"]
 	path = TextFromPdf
 	url = https://github.com/antonyoni/TextFromPdf
+[submodule "iTextSharp Functions/ReadText"]
+	path = iTextSharp Functions/ReadText
+	url = https://gist.github.com/141bf3b62dd0533cbb1155299b1dd02b
