@@ -1,0 +1,3 @@
+[submodule "TextFromPdf"]
+	path = TextFromPdf
+	url = https://github.com/antonyoni/TextFromPdf
